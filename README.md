@@ -1,37 +1,33 @@
-# SA-CCR Exposure & EAD Analytics (C++ / Python)
+# SA-CCR Exposure & EAD
 
-A **counterparty credit risk analytics prototype** that simulates **future exposure profiles** for interest rate, FX, and equity derivatives using Monte Carlo methods, and computes **SA-CCR-style Exposure at Default (EAD)** using supervisory add-on logic.
+### Overview 
 
-This project is designed to demonstrate the **end-to-end workflow** used in front-office and XVA teams:
-**market simulation → trade revaluation → exposure aggregation (EPE/PFE) → regulatory-style EAD computation**.
+The projects performed **S**tandardised **A**pproach for **C**ounterparty **C**redit **R**isk (SA-CCR) exposure & **E**xposure **A**t **D**efault (EAD) analytics with C++ and Python, using supervisory add-on logic. This counterparty credit risk analytics prototype simulates future exposure profiles for interest rate, foreign exchange (FX), and equity derivatives using Monte Carlo methods. It demonstrate the end-to-end workflow used in front-office and XVA teams, as market simulation → trade revaluation → exposure aggregation (EPE/PFE) → regulatory-style EAD computation.
 
----
+### Features
 
-## Key Capabilities
+Exposure Simulation
+  - Monte Carlo simulation of future market states.
+  - Pathwise revaluation of derivative contracts.
+  - Exposure calculation under positive exposure conventions.
 
-### Exposure Simulation
-- Monte Carlo simulation of future market states
-- Pathwise revaluation of derivative contracts
-- Exposure calculation under positive exposure conventions
+Supported Instruments
+  - Interest Rate Swap
+    - Linearized PV via DV01 under flat-rate assumptions.
+  - FX Forward
+    - Discounted forward valuation with domestic/foreign rates.
+  - European Option
+    - Black–Scholes valuation for equity or FX underlyings.
 
-### Supported Instruments
-- **Interest Rate Swap**
-  - Linearized PV via DV01 under flat-rate assumptions
-- **FX Forward**
-  - Discounted forward valuation with domestic/foreign rates
-- **European Option**
-  - Black–Scholes valuation for equity or FX underlyings
+Exposure Metrics
+  - **E**xpected **P**ositive **E**xposure (EPE).
+  - **P**otential **F**uture **E**xposure (PFE) at configurable confidence levels.
 
-### Exposure Metrics
-- **EPE (Expected Positive Exposure)**
-- **PFE (Potential Future Exposure)** at configurable confidence levels
+SA-CCR Analytics
+  - Replacement Cost: `RC = max(MtM − collateral, 0)`
+  - Supervisory add-on aggregation across asset classes
+  - `EAD = α × (RC + PFE_addon)` with configurable supervisory parameters
 
-### SA-CCR Analytics (Reference Implementation)
-- Replacement Cost: `RC = max(MtM − collateral, 0)`
-- Supervisory add-on aggregation across asset classes
-- `EAD = α × (RC + PFE_addon)` with configurable supervisory parameters
-
----
 
 ## Dual-Language Implementation
 
