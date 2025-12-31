@@ -29,42 +29,10 @@ SA-CCR Analytics
   - `EAD = α × (RC + PFE_addon)` with configurable supervisory parameters
 
 
-## Dual-Language Implementation
+### Technical Specification
 
-### C++
+C++17
 - Performance-oriented Monte Carlo engine
-- Single executable demonstrating exposure profiles and EAD calculation
-- Clear separation of market, trade, simulation, and SA-CCR logic
-- Built with modern C++ (C++17)
 
-### Python
-- Research-oriented API for rapid experimentation
-- Command-line interface for running example portfolios
+Python
 - Unit tests validating simulation and exposure mechanics
-- Optional plotting of exposure profiles
-
----
-
-## Repository Structure
-
-```text
-.
-├── src/                    # C++ source files
-│   ├── main.cpp
-│   ├── montecarlo.cpp
-│   ├── saccr.cpp
-│   └── ...
-├── include/                # C++ headers
-│   ├── montecarlo.hpp
-│   ├── saccr.hpp
-│   └── trades.hpp
-├── saccr/                  # Python package
-│   ├── market.py
-│   ├── montecarlo.py
-│   ├── trades.py
-│   ├── portfolio.py
-│   ├── saccr.py
-│   └── cli.py
-├── tests/                  # Python tests
-│   └── test_saccr.py
-└── CMakeLists.txt
